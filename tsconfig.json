@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES2019",
+    "module": "ESNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "strict": true,
+    "declaration": true,
+    "pretty": true,
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "lib": [
+      "ES2019",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "importHelpers": true
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist",
+    "esm",
+    "tests",
+    "./**/__tests__"
+  ]
+}
