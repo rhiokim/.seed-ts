@@ -3,7 +3,7 @@ name: Post Fork Initialization
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   npm-publish:
