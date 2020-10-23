@@ -20,6 +20,12 @@ jobs:
         with:
           node-version: 12
 
+      - name: Compare forked name of repository
+        if: ${{ env.GITHUB_REPOSITORY }} == 'rhiokim/.seed-ts'
+        run: |
+          echo "${{ env.GITHUB_REPOSITORY }}"
+          node -p -e "process.exit(1)"
+
       - name: Remove Files
         uses: rhiokim/remove-files-action@v1
         with:
