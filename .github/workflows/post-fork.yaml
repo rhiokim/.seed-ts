@@ -24,12 +24,7 @@ jobs:
         with:
           node-version: 12
 
-      # - name: Compare forked name of repository
-      #   run: |
-      #     echo "${{ github.repository }}"
-      #     node -p -e "process.exit(1)"
-
       - name: Remove Files
-        uses: rhiokim/remove-files-action@v1
+        uses: rhiokim/remove-files-action@v1.0.1
         with:
           files: './.github/workflows/post-fork.yaml'
