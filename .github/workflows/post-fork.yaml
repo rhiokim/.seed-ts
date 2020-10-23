@@ -1,0 +1,26 @@
+name: Post Fork Initialization
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  npm-publish:
+    name: Post Fork Initialization
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Remove Files
+        uses: rhiokim/remove-files-action@v1
+        with:
+          files: './.github/workflows/post-fork.yaml'
