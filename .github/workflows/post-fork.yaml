@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -41,9 +41,9 @@ jobs:
           cat ./README.md
           cat ./package.json
 
-      # - name: push
-      #   uses: github-actions-x/commit@v2.1
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     commit-message: 'chore: replaces template variables'
-      #     rebase: 'true'
+      - name: Commit report
+        run: |
+          git config --global user.name '${{ github.actor }}'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
+          git commit -am "Apply automatic replace tempate"
+          git push
