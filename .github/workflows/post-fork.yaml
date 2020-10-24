@@ -29,6 +29,19 @@ jobs:
         with:
           files: './.github/workflows/post-fork.yaml'
 
-      - name: After remove files
+      - name: Find and Replace (Project Name)
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "{{repository}}"
+          replace: ${{ github.event.repository.name }}
+
+      - name: After run
         run:
-          ls .github/workflows
+          cat ./README.md
+
+      # - name: push
+      #   uses: github-actions-x/commit@v2.1
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     commit-message: 'chore: replaces template variables'
+      #     rebase: 'true'
