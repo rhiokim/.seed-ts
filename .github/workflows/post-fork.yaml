@@ -25,6 +25,10 @@ jobs:
           node-version: 12
 
       - name: Remove Files
-        uses: rhiokim/remove-files-action@v1.0.1
+        uses: rhiokim/remove-files-action@v1
         with:
           files: './.github/workflows/post-fork.yaml'
+
+      - name: After remove files
+        run:
+          ls .github/workflows
