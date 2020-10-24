@@ -7,7 +7,7 @@ on:
 
 jobs:
   post-fork:
-    if: github.repository == 'rhiokim/.seed-ts'
+    if: github.repository != 'rhiokim/.seed-ts'
     name: Post Fork Initialization
 
     runs-on: ubuntu-latest
@@ -24,20 +24,22 @@ jobs:
         with:
           node-version: 12
 
+      - uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/.github/workflows/post-fork.js`)
+            script({ github, context })
+
       - name: Remove Files
         uses: rhiokim/remove-files-action@v1
         with:
-          files: './.github/workflows/post-fork.yaml'
-
-      - name: Find and Replace (Project Name)
-        uses: jacobtomlinson/gha-find-replace@master
-        with:
-          find: "{{repository}}"
-          replace: ${{ github.event.repository.name }}
+          files: './.github/workflows/post-fork.yaml ./.github/workflows/post-fork.js'
 
       - name: After run
-        run:
+        run: |
           cat ./README.md
+          cat ./package.json
 
       # - name: push
       #   uses: github-actions-x/commit@v2.1

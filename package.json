@@ -1,5 +1,6 @@
 {
   "name": "seed-ts",
+  "description": "Seed project with awesome DX",
   "version": "1.0.0",
   "private": true,
   "repository": "git@github.com:rhiokim/.seed-ts.git",
@@ -27,7 +28,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,ts}": [
+    "**/*.{js,ts}": [
       "eslint"
     ],
     "**/*.{json,yaml,md}": [

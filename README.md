@@ -1,1 +1,1 @@
-# {{repository}}
+# .seed-ts
