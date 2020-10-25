@@ -25,7 +25,7 @@ module.exports = ({ github, context }) => {
    */
 
   package.name = repository.name
-  package.description = repository.description
+  package.description = repository.description || ''
   package.repository = `git@github.com:${repository.full_name}.git`
   package.author = `${pusher.name} <${pusher.email}>`
   writeFileSync(packageFile, JSON.stringify(package, undefined, 2), { encoding: 'utf8' })
