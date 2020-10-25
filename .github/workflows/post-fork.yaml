@@ -36,12 +36,7 @@ jobs:
         with:
           files: './.github/workflows/post-fork.yaml ./.github/workflows/post-fork.js'
 
-      - name: After run
-        run: |
-          cat ./README.md
-          cat ./package.json
-
-      - name: Commit report
+      - name: Commit changes
         run: |
           git config --global user.name '${{ github.actor }}'
           git config --global user.email '${{ github.actor }}@users.noreply.github.com'
